@@ -17,4 +17,4 @@ You need =cmake= and =Qt= installed. Build the project with /Qt Creator/ is simp
 - Cycoe
 
 ** License
-MIT
+MIT: [[file:LICENSE][MIT License]]
