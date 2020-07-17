@@ -79,7 +79,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="184"/>
-        <source>S&amp;pecies</source>
+        <source>&amp;Words</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

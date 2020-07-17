@@ -35,7 +35,7 @@
             <enum>QFrame::Box</enum>
            </property>
            <property name="frameShadow">
-            <enum>QFrame::Plain</enum>
+            <enum>QFrame::Sunken</enum>
            </property>
            <property name="text">
             <string>Player</string>
@@ -149,7 +149,7 @@
      <x>0</x>
      <y>0</y>
      <width>786</width>
-     <height>33</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_File">
@@ -181,7 +181,7 @@
   </action>
   <action name="actionS_pecies">
    <property name="text">
-    <string>S&amp;pecies</string>
+    <string>&amp;Words</string>
    </property>
   </action>
  </widget>
