@@ -1,0 +1,20 @@
+#+DATE: <2020-07-17 Fri 15:40>
+
+** Introduction 
+Ah counter is an utility for /Toast Master/ members to count the usage of the filler words.
+
+** Installation
+*** Install binary package
+Just download and extract the compressed package
+
+*** Compile from source code
+You need =cmake= and =Qt= installed. Build the project with /Qt Creator/ is simpler.
+
+** Contributors
+- Cycoe
+
+** Maintainers
+- Cycoe
+
+** License
+MIT
