@@ -17,7 +17,7 @@ NameEditor::~NameEditor()
 
 void NameEditor::add_name(const QString &name)
 {
-  QListWidgetItem* item = new QListWidgetItem(name, ui->lw_names);
+  auto* item = new QListWidgetItem(name, ui->lw_names);
   item->setCheckState(Qt::Checked);
   ui->lw_names->addItem(item);
 }
@@ -28,8 +28,8 @@ QList<QString> const& NameEditor::get_names_to_remove()
   for (int row = 0; row < ui->lw_names->count(); ++row) {
     item = ui->lw_names->item(row);
     if (item->checkState() == Qt::Unchecked) {
-        names_to_remove.push_back(item->text());
-      }
+      names_to_remove.push_back(item->text());
+    }
   }
   return names_to_remove;
 }

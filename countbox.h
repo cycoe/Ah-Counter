@@ -27,6 +27,7 @@ private slots:
 
 private:
   Ui::CountBox *ui;
+  static std::size_t const count_max = 999;
 };
 
 #endif // COUNTBOX_H

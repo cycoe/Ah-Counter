@@ -8,7 +8,7 @@ CountBox::CountBox(QWidget *parent) :
   ui(new Ui::CountBox)
 {
   ui->setupUi(this);
-  ui->le->setValidator(new QIntValidator(0, 100, ui->le));
+  ui->le->setValidator(new QIntValidator(0, CountBox::count_max, ui->le));
   connect(ui->le, &QLineEdit::textChanged, this, &CountBox::text_changed);
 }
 
@@ -35,7 +35,7 @@ void CountBox::set_text(const QString &str)
 void CountBox::on_btn_plus_clicked()
 {
   std::size_t count = ui->le->text().toUInt();
-  if (count < 100)
+  if (count < CountBox::count_max)
     ui->le->setText(QString::number(++count));
 }
 

@@ -26,13 +26,11 @@ private slots:
     void on_btnAddSpecie_clicked();
     void on_cbName_currentIndexChanged(const QString&);
     void on_countbox_text_changed(QString const&, CountBox*);
-    void on_leName_textChanged(const QString &arg1);
-    void on_leSpecie_textChanged(const QString &arg1);
+    void on_leName_textChanged(const QString&);
+    void on_leSpecie_textChanged(const QString&);
     void on_action_export_triggered();
     void on_action_names_triggered();
     void on_action_species_triggered();
-    void on_name_edit_finished(int);
-    void on_specie_edit_finished(int);
 
 private:
     void add_name(QString const&);
@@ -44,8 +42,6 @@ private:
 
     Ui::MainWindow *ui = nullptr;
     Recorder *recorder = nullptr;
-    NameEditor* name_editor = nullptr;
-    NameEditor* specie_editor = nullptr;
     QList<CountBox*> specie_widgets;
 };
 #endif // MAINWINDOW_H

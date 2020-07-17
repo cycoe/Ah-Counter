@@ -23,7 +23,7 @@ Recorder::names_type const& Recorder::species() const
 
 bool Recorder::find_name(std::string const& name) const
 {
-  for (auto n : __names)
+  for (auto const& n : __names)
     if (n == name)
       return true;
   return false;
@@ -31,7 +31,7 @@ bool Recorder::find_name(std::string const& name) const
 
 bool Recorder::find_specie(const std::string &specie) const
 {
-  for (auto s : __species)
+  for (auto const& s : __species)
     if (s == specie)
       return true;
   return false;
@@ -59,12 +59,8 @@ Recorder::names_size_type Recorder::specie_index(std::string const& specie) cons
 
 Recorder::count_type Recorder::by_name(std::string const& name) const
 {
-    names_size_type index = name_index(name);
-    if (index == __names.size()) {
-        return count_type(__species.size());
-    } else {
-        return __counts[index];
-    }
+    names_size_type i = name_index(name);
+    return i == __names.size()? count_type(__species.size()): __counts[i];
 }
 
 Recorder::count_type Recorder::by_specie(const std::string &specie) const
@@ -72,13 +68,13 @@ Recorder::count_type Recorder::by_specie(const std::string &specie) const
     names_size_type index = specie_index(specie);
     if (index == __species.size()) {
         return count_type(__names.size());
-    } else {
-        count_type ret;
-        for (auto const& count : __counts) {
-            ret.push_back(count[index]);
-        }
-        return ret;
     }
+
+    count_type ret;
+    for (auto const& count : __counts) {
+      ret.push_back(count[index]);
+    }
+    return ret;
 }
 
 std::size_t& Recorder::by_name_specie(const std::string &name, const std::string &specie)
@@ -104,9 +100,9 @@ void Recorder::add_specie(const std::string &specie)
 
 void Recorder::remove_name(const names_size_type index)
 {
-    names_type::iterator i = __names.begin() + index;
+    auto i = __names.begin() + index;
     __names.erase(i);
-    counts_type::iterator j = __counts.begin() + index;
+    auto j = __counts.begin() + index;
     __counts.erase(j);
 }
 
@@ -118,7 +114,7 @@ void Recorder::remove_name(const std::string &name)
 
 void Recorder::remove_specie(const names_size_type index)
 {
-    names_type::iterator i = __species.begin() + index;
+    auto i = __species.begin() + index;
     __species.erase(i);
     count_type::iterator j;
     for (auto& count : __counts) {
