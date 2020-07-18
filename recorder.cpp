@@ -1,4 +1,5 @@
 #include <sstream>
+#include <algorithm>
 #include "recorder.h"
 
 std::string Recorder::name(names_size_type index) const
@@ -23,38 +24,22 @@ Recorder::names_type const& Recorder::species() const
 
 bool Recorder::find_name(std::string const& name) const
 {
-  for (auto const& n : __names)
-    if (n == name)
-      return true;
-  return false;
+  return std::find(__names.cbegin(), __names.cend(), name) != __names.cend();
 }
 
 bool Recorder::find_specie(const std::string &specie) const
 {
-  for (auto const& s : __species)
-    if (s == specie)
-      return true;
-  return false;
+  return std::find(__species.cbegin(), __species.cend(), specie) != __species.cend();
 }
 
 Recorder::names_size_type Recorder::name_index(std::string const& name) const
 {
-    names_size_type index;
-    for (index = 0; index != __names.size(); ++index) {
-        if (name == __names[index])
-            break;
-    }
-    return index;
+    return std::find(__names.cbegin(), __names.cend(), name) - __names.cbegin();
 }
 
 Recorder::names_size_type Recorder::specie_index(std::string const& specie) const
 {
-    names_size_type index;
-    for (index = 0; index != __species.size(); ++index) {
-        if (specie == __species[index])
-            break;
-    }
-    return index;
+  return std::find(__species.cbegin(), __species.cend(), specie) - __species.cbegin();
 }
 
 Recorder::count_type Recorder::by_name(std::string const& name) const
