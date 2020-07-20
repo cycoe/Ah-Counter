@@ -154,6 +154,7 @@ void MainWindow::on_action_export_triggered()
 void MainWindow::on_action_names_triggered()
 {
   NameEditor name_editor(this);
+  name_editor.setWindowTitle("管理角色");
   for (auto const& name : recorder->names()) {
    name_editor.add_name(QString::fromStdString(name));
   }
@@ -169,6 +170,7 @@ void MainWindow::on_action_names_triggered()
 void MainWindow::on_action_species_triggered()
 {
   NameEditor specie_editor(this);
+  specie_editor.setWindowTitle("管理填充词");
   for (auto const& specie : recorder->species()) {
     specie_editor.add_name(QString::fromStdString(specie));
   }

@@ -116,7 +116,7 @@ void Recorder::remove_specie(const std::string &specie)
 
 void Recorder::export_data(std::ostream_iterator<std::string> iter) const
 {
-  iter++ = "Species";
+  iter++ = "Words";
   for (auto const& specie : __species) {
       iter++ = "\t" + specie;
   }
