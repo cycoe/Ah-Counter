@@ -144,8 +144,8 @@ void MainWindow::on_leSpecie_textChanged(const QString &text)
 void MainWindow::on_action_export_triggered()
 {
   QString file_name;
-  file_name = QFileDialog::getSaveFileName(this, "Export to",
-                                           "", "Text File(*.txt)");
+  file_name = QFileDialog::getSaveFileName(this, "Export to", "",
+                                           "Excel(*.xls);; Text File(*.txt)");
   std::ofstream ofs(file_name.toStdString());
   recorder->export_data(std::ostream_iterator<std::string>(ofs));
   ofs.close();
